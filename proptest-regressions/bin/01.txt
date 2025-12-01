@@ -1,0 +1,15 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 0ed0225b0766a26a31bdc5956e9c3ee29335445cd3c0be9bbc2b0662ab233a53 # shrinks to y = -351
+cc 5c3c4b1545f20b6de59ea82cb93c18b9b8fb5e529818d661e33afe11f61f533c # shrinks to y = 0
+cc 52084244b66548b05afeee686bc761f52ce45a0eb232c3b5dc53ebe03e8737d8 # shrinks to y = -300
+cc cc7c1bb713f16929f7cea4b5f8fbf50be6932521c9c418ef0d416398e59fa409 # shrinks to y = 100
+cc eac0f4ac56a608a643d0b0dca93ee5cc20579adeebbd2396863efbae8d5936f8 # shrinks to y = -701
+cc 114cc7662b579bfaec3fb6796b068e1865ab415093f8ed0ef0a5dc17ee2ce755 # shrinks to start = 15, y = -1
+cc e4087b39509cf58d1215ad8673c0e9460e022841bda63e5fad448d2984887da9 # shrinks to start = 20, y = -420
+cc 57160c0445c51cf96e6a4503daba25b77860ff6e652cfe35c5381a6591a16953 # shrinks to start = 97, y = -97
+cc 713903f02ec1d3ecb9940a85f9f6b3a9fa77e749acfaa3371dc33b6eed929e5f # shrinks to start = 95, y = 705
