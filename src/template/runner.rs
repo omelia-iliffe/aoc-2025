@@ -12,6 +12,13 @@ use crate::template::{ANSI_ITALIC, ANSI_RESET, Day, aoc_cli};
 pub fn run_part<I: Copy, T: Display>(func: impl Fn(I) -> Option<T>, input: I, day: Day, part: u8) {
     let part_str = format!("Part {part}");
 
+    if std::env::args().any(|x| x == "--bench") {
+        let mut c: ::criterion::Criterion<_> =
+            ::criterion::Criterion::default().configure_from_args();
+        c.bench_function(&format!("Day {}, Part {}", day, part), |b| {
+            b.iter(|| black_box(func(black_box(input))))
+        });
+    }
     let (result, duration, samples) =
         run_timed(func, input, |result| print_result(result, &part_str, ""));
 

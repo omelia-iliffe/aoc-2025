@@ -27,7 +27,7 @@ mod args {
             release: bool,
             dhat: bool,
             submit: Option<u8>,
-            time: bool,
+            bench: bool,
         },
         All {
             release: bool,
@@ -74,7 +74,7 @@ mod args {
                 release: args.contains("--release"),
                 submit: args.opt_value_from_str("--submit")?,
                 dhat: args.contains("--dhat"),
-                time: args.contains("--time"),
+                bench: args.contains("--bench"),
             },
             #[cfg(feature = "today")]
             Some("today") => AppArguments::Today,
@@ -122,8 +122,9 @@ fn main() {
                 day,
                 release,
                 dhat,
-                submit,time,
-            } => solve::handle(day, release, dhat, submit, time),
+                submit,
+                bench,
+            } => solve::handle(day, release, dhat, submit, bench),
             #[cfg(feature = "today")]
             AppArguments::Today => {
                 match Day::today() {
