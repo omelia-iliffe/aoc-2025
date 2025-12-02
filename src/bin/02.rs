@@ -19,9 +19,18 @@ fn analyse_number_p1(num: &i64) -> bool {
 
 fn analyse_number_p2(num: &i64) -> bool {
     let num_str = num.to_string();
-    for (index, _) in num_str.char_indices() {
-        let (rep, remainder) = num_str.split_at_checked(index).unwrap();
-        if remainder.trim_start_matches(rep).is_empty() {
+    assert!(num_str.is_ascii());
+    let num_str = num_str.as_bytes();
+    for pattern_length in 0..=(num_str.len().div_ceil(2)) {
+        if !num_str.len().is_multiple_of(pattern_length) {
+            continue;
+        }
+
+        if num_str
+            .chunks(pattern_length)
+            .skip(1)
+            .all(|c| c == &num_str[..pattern_length])
+        {
             return true;
         }
     }
